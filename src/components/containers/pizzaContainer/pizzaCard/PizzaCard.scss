@@ -1,7 +1,20 @@
 .cardContainer {
   display: flex;
+  padding: 0.5rem;
 }
 .textContainer {
   display: flex;
   flex-direction: column;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  width: 60%;
+}
+.priceCont {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+}
+.pizzaImg {
+  width: 80px;
+  height: 80px;
 }

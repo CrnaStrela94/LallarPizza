@@ -1,14 +1,17 @@
-import React from 'react'
-import "./__plusbtn.scss"
+import React from "react";
+import "./__plusbtn.scss";
 
-const plusClick=()=>{
-    
-}
+const plusClick = () => {
+  console.log("XD");
+};
 
 export const PlusBtn = () => {
   return (
     <>
-    <button className="plus-button"onClick={plusClick}> <span id='plus'>+</span></button>
+      <button className="plus-button" onClick={plusClick}>
+        {" "}
+        <span id="plus">+</span>
+      </button>
     </>
-  )
-}
+  );
+};
