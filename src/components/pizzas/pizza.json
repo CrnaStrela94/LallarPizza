@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Margherita",
+    "toppings": ["tomato", "mozzarella", "basil"],
+    "price": 85
+  },
+  {
+    "name": "Pepperoni",
+    "toppings": ["tomato", "mozzarella", "pepperoni"],
+    "price": 99
+  },
+  {
+    "name": "Vegetarian",
+    "toppings": ["tomato", "mozzarella", "mushrooms", "bell peppers", "onions"],
+    "price": 150
+  }
+]
