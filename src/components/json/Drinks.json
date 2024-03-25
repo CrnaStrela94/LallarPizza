@@ -11,14 +11,6 @@
     {
       "name": "Fanta",
       "price": 2.0
-    },
-    {
-      "name": "Pepsi",
-      "price": 2.5
-    },
-    {
-      "name": "7up",
-      "price": 2.0
     }
   ]
 }
