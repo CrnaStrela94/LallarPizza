@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Grandstander:ital,wght@0,100..900;1,100..900&display=swap");
+
+*,
+* ::before,
+* ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  width: 100vw;
+  height: 9rem;
+  display: flex;
+  align-items: center;
+  background: #fcfcfc;
+  border-radius: 0.5rem;
+  box-shadow: 0px 6.9px 25px 0px #0000003f;
+
+  .Pizzalogo {
+    height: 6.9rem;
+    width: auto;
+    margin: 1rem;
+  }
+  .Title {
+    font-family: "Grandstander", bold;
+    font-size: 3rem;
+    color: #f44242;
+    transform: rotate(-6.9deg);
+    justify-self: center;
+  }
+}
