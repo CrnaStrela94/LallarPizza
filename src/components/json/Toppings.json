@@ -1,0 +1,28 @@
+{
+  "toppings": [
+    {
+      "name": "Pepperoni",
+      "price": 15
+    },
+    {
+      "name": "Mushrooms",
+      "price": 5
+    },
+    {
+      "name": "Onions",
+      "price": 3
+    },
+    {
+      "name": "Green Peppers",
+      "price": 15
+    },
+    {
+      "name": "Olives",
+      "price": 17
+    },
+    {
+      "name": "Pineapple",
+      "price": 25
+    }
+  ]
+}
