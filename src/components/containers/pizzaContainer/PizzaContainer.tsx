@@ -6,19 +6,27 @@ import * as pizzaTypes from "../../types/OrderTypes";
 import drinksList from "../../json/Drinks.json";
 import DrinkCard from "./drinkCard/DrinkCard";
 
-const PizzaContainer = () => {
+type Props = {
+  addToCart: (order: pizzaTypes.OrderPizzaType) => void;
+};
+const PizzaContainer: React.FC<Props> = ({ addToCart }) => {
   const pizzaArray: pizzaTypes.Pizza[] = pizzaList;
-  const drinksArray: pizzaTypes.Drinks[] = drinksList.drinks;
-  console.log(pizzaArray);
+  const drinksArray: pizzaTypes.Drink[] = drinksList.drinks;
   return (
     <div className="pizzaCont">
       <h2 id="titleText">PIZZA & DRINK</h2>
       {pizzaArray.map((pizza, index) => (
-        <PizzaCard individualPizza={pizza} />
+        <PizzaCard
+          individualPizza={pizza}
+          addToCart={(order: pizzaTypes.OrderPizzaType) => addToCart(order)}
+        />
       ))}
       <span className="divider"></span>
       {drinksArray.map((drink, index) => (
-        <DrinkCard individualDrink={drink} />
+        <DrinkCard
+          individualDrink={drink}
+          addToCart={(order: pizzaTypes.OrderPizzaType) => addToCart(order)}
+        />
       ))}
     </div>
   );

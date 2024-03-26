@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import "./PizzaCard.scss";
 import pizzaImg from "../../../../assets/pizza.png";
 import { PlusBtn } from "../../../btn/PlusBtn";
-import { Pizza } from "../../../types/OrderTypes";
+import { OrderPizzaType, Pizza, PizzaOrder } from "../../../types/OrderTypes";
 
-const PizzaCard = ({ individualPizza }: { individualPizza: Pizza }) => {
+type Props = {
+  individualPizza: Pizza;
+  addToCart: (order: OrderPizzaType) => void;
+};
+
+const PizzaCard: React.FC<Props> = ({ addToCart, individualPizza }) => {
+  const handleAddToCart = () => {
+    const order: OrderPizzaType = {
+      pizza: individualPizza,
+      extraToppings: [],
+      drinks: [],
+    };
+    addToCart(order);
+  };
+
   return (
     <>
       <div className="cardContainer">
@@ -14,7 +28,7 @@ const PizzaCard = ({ individualPizza }: { individualPizza: Pizza }) => {
           <p>{individualPizza.toppings.join(", ")}</p>
         </div>
         <div className="priceCont">
-          <PlusBtn />
+          <PlusBtn onClick={handleAddToCart} />
           <p>{individualPizza.price}kr</p>
         </div>
       </div>
