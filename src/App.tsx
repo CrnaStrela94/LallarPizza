@@ -1,7 +1,10 @@
+import PizzaContainer from "./components/containers/pizzaContainer/PizzaContainer";
 
 export function App() {
   return (
-    <div>App</div>
+    <div>
+      <PizzaContainer />
+    </div>
   )
 }
 
