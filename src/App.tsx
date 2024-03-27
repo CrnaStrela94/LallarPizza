@@ -16,7 +16,7 @@ export function App() {
   return (
     <div>
       <PizzaContainer addToCart={addToCart} />
-      <MinusBtn/>
+      
     </div>
   );
 }
