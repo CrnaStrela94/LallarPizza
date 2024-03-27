@@ -14,6 +14,7 @@ const DrinkCard: React.FC<Props> = ({ addToCart, individualDrink }) => {
       pizza: { name: "", toppings: [], price: 0 },
       extraToppings: [],
       drinks: [individualDrink],
+      id: 0,
     };
     addToCart(order);
   };

@@ -1,14 +1,17 @@
-import React from 'react'
-import "./__minusbtn.scss"
-const minusClick=()=>{
-    
-}
-const MinusBtn = () => {
-  return (
-    <>
-    <button className="minus-button" onClick={minusClick}><span id='minus'>-</span></button>
-    </>
-  )
-}
+// MinusBtn.tsx
+import React from 'react';
+import "./__minusbtn.scss";
 
-export default MinusBtn
+type Props = {
+  onClick: () => void;
+};
+
+const MinusBtn: React.FC<Props> = ({ onClick }) => {
+  return (
+    <button className="minus-button" onClick={onClick}>
+      <span id='minus'>-</span>
+    </button>
+  );
+};
+
+export default MinusBtn;

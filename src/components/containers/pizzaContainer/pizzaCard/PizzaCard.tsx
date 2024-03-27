@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./PizzaCard.scss";
 import pizzaImg from "../../../../assets/pizza.png";
 import { PlusBtn } from "../../../btn/PlusBtn";
-import { OrderPizzaType, Pizza, PizzaOrder } from "../../../types/OrderTypes";
+import { OrderPizzaType, Pizza } from "../../../types/OrderTypes";
 
 type Props = {
   individualPizza: Pizza;
@@ -15,6 +15,7 @@ const PizzaCard: React.FC<Props> = ({ addToCart, individualPizza }) => {
       pizza: individualPizza,
       extraToppings: [],
       drinks: [],
+      id: 0,
     };
     addToCart(order);
   };
