@@ -1,29 +1,33 @@
-type PizzaOrder = {
-    orderPizzaType: OrderPizzaType;
+export type PizzaOrder = {
+  orderPizzaType: OrderPizzaType;
 };
 
-type OrderPizzaType = {
-    pizza: Pizza;
-    extraToppings: ExtraTopping[];
-    drinks: Drink[];
+export type OrderPizzaType = {
+  pizza: Pizza;
+  extraToppings: ExtraTopping[];
+  drinks: Drink[];
 };
 
-type Pizza = {
-    name: string;
-    toppings: string[];
-    price: number;
+export type Pizza = {
+  name: string;
+  toppings: string[];
+  price: number;
 };
 
-type ExtraTopping = {
-    name: string;
-    price: number;
-    amount: number;
+export type ExtraTopping = {
+  name: string;
+  price: number;
+  amount: number;
 };
 
-type Drink = {
-    name: string;
-    price: number;
-    amount: number;
+export type Drink = {
+  name: string;
+  price: number;
+  amount: number;
+};
+export type Drinks = {
+  name: string;
+  price: number;
 };
 
 // Example with multiple pizzas, each with extra toppings and a drink
