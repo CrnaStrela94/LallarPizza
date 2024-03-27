@@ -1,5 +1,6 @@
 import React from "react";
 import "./__plusbtn.scss";
+import plus from "../../assets/plus.svg"
 
 interface PlusBtnProps {
   onClick?: () => void; // Define onClick prop as optional
@@ -10,7 +11,7 @@ export const PlusBtn: React.FC<PlusBtnProps> = ({ onClick }) => {
 
   return (
     <button className="plus-button" onClick={handleClick}>
-      <span id="plus">+</span>
+     <img src={plus} alt="" />
     </button>
   );
 };

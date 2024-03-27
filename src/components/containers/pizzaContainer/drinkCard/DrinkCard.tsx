@@ -3,17 +3,20 @@ import "../pizzaCard/PizzaCard.scss";
 import spriteImg from "../../../../assets/sprite.png";
 import { PlusBtn } from "../../../btn/PlusBtn";
 import { Drink, OrderPizzaType } from "../../../types/OrderTypes";
+import { useCart } from "../../../PizzaContext";
 
 type Props = {
   individualDrink: Drink;
-  addToCart: (order: OrderPizzaType) => void;
 };
-const DrinkCard: React.FC<Props> = ({ addToCart, individualDrink }) => {
+
+const DrinkCard: React.FC<Props> = ({ individualDrink }) => {
+  const { addToCart } = useCart();
   const handleAddToCart = () => {
     const order: OrderPizzaType = {
       pizza: { name: "", toppings: [], price: 0 },
       extraToppings: [],
       drinks: [individualDrink],
+      id: 0,
     };
     addToCart(order);
   };
