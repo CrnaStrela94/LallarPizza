@@ -6,7 +6,7 @@ const minusClick=()=>{
 const MinusBtn = () => {
   return (
     <>
-    <button className="minus-button" onClick={minusClick}><span id='minus'>-</span></button>
+    <button className="minus-button" onClick={minusClick}><span id='minus'>—</span></button>
     </>
   )
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PizzaContainer from "./components/containers/pizzaContainer/PizzaContainer";
 import { OrderPizzaType } from "./components/types/OrderTypes";
+import MinusBtn from "./components/btn/MinusBtn";
 export function App() {
   const [shoppingCart, setShoppingCart] = useState<OrderPizzaType[]>([]);
 
@@ -15,6 +16,7 @@ export function App() {
   return (
     <div>
       <PizzaContainer addToCart={addToCart} />
+      <MinusBtn/>
     </div>
   );
 }
