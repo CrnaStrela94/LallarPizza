@@ -2,8 +2,22 @@ import React from "react";
 import "../pizzaCard/PizzaCard.scss";
 import spriteImg from "../../../../assets/sprite.png";
 import { PlusBtn } from "../../../btn/PlusBtn";
-import { Drinks } from "../../../types/OrderTypes";
-const DrinkCard = ({ individualDrink }: { individualDrink: Drinks }) => {
+import { Drink, OrderPizzaType } from "../../../types/OrderTypes";
+
+type Props = {
+  individualDrink: Drink;
+  addToCart: (order: OrderPizzaType) => void;
+};
+const DrinkCard: React.FC<Props> = ({ addToCart, individualDrink }) => {
+  const handleAddToCart = () => {
+    const order: OrderPizzaType = {
+      pizza: { name: "", toppings: [], price: 0 },
+      extraToppings: [],
+      drinks: [individualDrink],
+      id: 0,
+    };
+    addToCart(order);
+  };
   return (
     <>
       <div className="cardContainer">
@@ -13,7 +27,7 @@ const DrinkCard = ({ individualDrink }: { individualDrink: Drinks }) => {
           <p>330ml can</p>
         </div>
         <div className="priceCont">
-          <PlusBtn />
+          <PlusBtn onClick={handleAddToCart} />
           <p>{individualDrink.price}kr</p>
         </div>
       </div>

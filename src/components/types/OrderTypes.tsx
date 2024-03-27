@@ -6,6 +6,7 @@ export type OrderPizzaType = {
   pizza: Pizza;
   extraToppings: ExtraTopping[];
   drinks: Drink[];
+  id: number;
 };
 
 export type Pizza = {
@@ -29,6 +30,7 @@ export type Drinks = {
   name: string;
   price: number;
 };
+
 
 // Example with multiple pizzas, each with extra toppings and a drink
 // const orders: PizzaOrder[] = [

@@ -1,49 +1,43 @@
-import React, { useState } from 'react';
-import PizzaContainer from '../pizzaContainer/PizzaContainer';
-import ToppingsContainer from '../toppingsContainer/ToppingsContainer';
-import pizzas from '../../json/Pizza.json';
-import toppings from '../../json/ExtraTopping.json';
-import drinks from '../../json/Drinks.json';
-import './orderContainer.scss';
-import { PizzaOrder } from '../../types/OrderTypes';
+import React, { useReducer, useRef } from "react";
+import PizzaContainer from "../pizzaContainer/PizzaContainer";
+import Cart from "../orderContainer/Cart";
+import { OrderPizzaType } from "../../types/OrderTypes";
 
-export const OrderContainer: React.FC = () => {
-    const [selectedPizzas, setSelectedPizzas] = useState<PizzaOrder[]>([]);
-    const [selectedToppings, setSelectedToppings] = useState<PizzaOrder[]>([]);
+type Props = {
+    shoppingCart: OrderPizzaType[];
+};
 
-    const handlePizzaSelection = (pizza: PizzaOrder) => {
-        setSelectedPizzas((prevSelectedPizzas) => [...prevSelectedPizzas, pizza]);
-    };
-    const handleDrinksSelection = (drink: PizzaOrder) => {
-        setSelectedPizzas((prevSelectedDrinks) => [...prevSelectedDrinks, drink]);
+type Action =
+    | { type: 'ADD', order: OrderPizzaType, id: number }
+    | { type: 'REMOVE', id: number };
+
+function reducer(state: OrderPizzaType[], action: Action) {
+    switch (action.type) {
+        case 'ADD':
+            return [...state, { ...action.order, id: action.id }];
+        case 'REMOVE':
+            return state.filter(order => order.id !== action.id);
+        default:
+            throw new Error();
     }
+}
 
-    const handleToppingSelection = (topping: PizzaOrder) => {
-        setSelectedToppings((prevSelectedToppings) => [...prevSelectedToppings, topping]);
+export const OrderContainer: React.FC<Props> = ({ shoppingCart }) => {
+    const [cart, dispatch] = useReducer(reducer, shoppingCart);
+    const nextId = useRef(0);
+
+    const addToCart = (order: OrderPizzaType) => {
+        dispatch({ type: 'ADD', order, id: nextId.current++ });
     };
 
-    const calculateTotalPrice = () => {
-        // Calculate the total price based on the selected pizzas and toppings
-        // You can use the prices from the JSON files to calculate the price of each item
-        // and then sum them up to get the final price
+    const removeFromCart = (order: OrderPizzaType) => {
+        dispatch({ type: 'REMOVE', id: order.id });
     };
 
     return (
-        <div>
-            <h2>Order Container</h2>
-            <PizzaContainer
-                pizzas={pizzas}
-                drinks={drinks}
-                onPizzaSelect={(selectedPizza: PizzaOrder, selectedDrink: PizzaOrder) => {
-                    handlePizzaSelection(selectedPizza);
-                    handleDrinksSelection(selectedDrink);
-                }}
-            />
-            <ToppingsContainer toppings={toppings} onToppingSelect={handleToppingSelection} />
-
-            <button onClick={calculateTotalPrice}>Calculate Price</button>
-            {/* Display the selected pizzas and toppings here */}
-            {/* Display the final price here */}
-        </div>
+        <>
+            <PizzaContainer addToCart={addToCart} />
+            <Cart cart={cart} removeFromCart={removeFromCart} />
+        </>
     );
 };
