@@ -13,4 +13,4 @@ const MinusBtn = () => {
   )
 }
 
-export default MinusBtn
+export default MinusBtn;
