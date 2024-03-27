@@ -1,3 +1,7 @@
+@font-face {
+  font-family: interFont;
+  src: url(../../../fonts/inter.ttf);
+}
 * {
   margin: 0;
   padding: 0;
@@ -16,6 +20,7 @@ body {
   margin-left: 2.5%;
   margin-top: 10%;
   padding: 1rem;
+  font-family: interFont;
 }
 .divider {
   display: block;
@@ -23,4 +28,7 @@ body {
   height: 1px; /* Adjust the height of the line */
   background-color: #ccc; /* Adjust the color of the line */
   margin: 10px 0; /* Adjust the margin above and below the line */
+}
+#titleText{
+  margin-left: 1rem;
 }
