@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 import "./PizzaCard.scss";
 import pizzaImg from "../../../../assets/pizza.png";
 import { PlusBtn } from "../../../btn/PlusBtn";
@@ -15,7 +16,7 @@ const PizzaCard: React.FC<Props> = ({ individualPizza }) => {
       pizza: individualPizza,
       extraToppings: [],
       drinks: [],
-      id: 0,
+      id: uuidv4(),
     };
     addToCart(order);
   };

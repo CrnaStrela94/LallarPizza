@@ -1,10 +1,11 @@
 // CartContext.tsx
 import React, { ReactNode, createContext, useContext, useState } from "react";
-import { OrderPizzaType } from "./types/OrderTypes";
+import { ExtraTopping, OrderPizzaType } from "./types/OrderTypes";
 
 type CartContextType = {
   shoppingCart: OrderPizzaType[];
   addToCart: (order: OrderPizzaType) => void;
+  updateExtraToppings: (orderId: string, newToppings: ExtraTopping[]) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -14,13 +15,29 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const [shoppingCart, setShoppingCart] = useState<OrderPizzaType[]>([]);
 
+  const updateExtraToppings = (
+    orderId: string,
+    newToppings: ExtraTopping[]
+  ) => {
+    setShoppingCart((prevCart) =>
+      prevCart.map((order) => {
+        if (order.id === orderId) {
+          return { ...order, extraToppings: newToppings };
+        }
+        return order;
+      })
+    );
+  };
+
   const addToCart = (order: OrderPizzaType) => {
     setShoppingCart([...shoppingCart, order]);
   };
   console.log(shoppingCart);
 
   return (
-    <CartContext.Provider value={{ shoppingCart, addToCart }}>
+    <CartContext.Provider
+      value={{ shoppingCart, addToCart, updateExtraToppings }}
+    >
       {children}
     </CartContext.Provider>
   );

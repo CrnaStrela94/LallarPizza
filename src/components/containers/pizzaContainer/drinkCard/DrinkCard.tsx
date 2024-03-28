@@ -4,6 +4,7 @@ import spriteImg from "../../../../assets/sprite.png";
 import { PlusBtn } from "../../../btn/PlusBtn";
 import { Drink, OrderPizzaType } from "../../../types/OrderTypes";
 import { useCart } from "../../../PizzaContext";
+import { v4 as uuidv4 } from "uuid";
 
 type Props = {
   individualDrink: Drink;
@@ -16,7 +17,7 @@ const DrinkCard: React.FC<Props> = ({ individualDrink }) => {
       pizza: { name: "", toppings: [], price: 0 },
       extraToppings: [],
       drinks: [individualDrink],
-      id: 0,
+      id: uuidv4(),
     };
     addToCart(order);
   };
