@@ -5,24 +5,21 @@ import { ExtraTopping } from "../../../types/OrderTypes";
 
 type Props = {
   individualTopping: ExtraTopping;
-  pizzaIndex: string; // Accepting pizzaIndex to identify which pizza to update
+  pizzaIndex: string;
 };
 
 const ToppingCard: React.FC<Props> = ({ individualTopping, pizzaIndex }) => {
-  const { shoppingCart, updateExtraToppings } = useCart();
+  const { shoppingCart, addNewToppingToCart } = useCart();
 
   const handleAddToCart = () => {
-    const pizza = shoppingCart.find((order) => order.id === pizzaIndex);
-
-    if (pizza) {
-      const updatedToppings = [...pizza.extraToppings, individualTopping];
-      updateExtraToppings(pizzaIndex, updatedToppings);
-    } else {
-      console.error(
-        `Pizza with id ${pizzaIndex} not found in the shopping cart.`
-      );
-      // Handle the missing pizza scenario
-    }
+    const updatedCart = shoppingCart.map((order) => {
+      if (order.id === pizzaIndex) {
+        const updatedToppings = [...order.extraToppings, individualTopping];
+        return { ...order, extraToppings: updatedToppings };
+      }
+      return order;
+    });
+    addNewToppingToCart(updatedCart);
   };
 
   return (
