@@ -1,9 +1,9 @@
 import React from "react";
 import Cart from "../orderContainer/Cart";
-import { useCart } from "../../PizzaContext"; // import useCart
+import { useCart } from "../../PizzaContext";
 
 const OrderContainer: React.FC = () => {
-    const { shoppingCart, removeFromCart } = useCart(); // use useCart
+    const { shoppingCart, removeFromCart } = useCart();
 
     return (
         <>

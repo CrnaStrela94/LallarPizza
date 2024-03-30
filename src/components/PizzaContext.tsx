@@ -7,7 +7,8 @@ type CartContextType = {
   addToCart: (order: OrderPizzaType) => void;
   removeFromCart: (id: string) => void; // Add this line
   updateExtraToppings: (orderId: string, newToppings: ExtraTopping[]) => void;
-  addNewToppingToCart: (order: OrderPizzaType[]) => void;
+  addNewToppingToCart: (updatedCart: OrderPizzaType[]) => void;
+  removeToppingFromCart: (pizzaId: string, topping: ExtraTopping) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -28,8 +29,16 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       })
     );
   };
-  const addNewToppingToCart = (order: OrderPizzaType[]) => {
-    setShoppingCart(order);
+  const removeToppingFromCart = (pizzaId: string, topping: ExtraTopping) => {
+    setShoppingCart((prevCart) => prevCart.map((order) => {
+      if (order.id === pizzaId) {
+        return { ...order, extraToppings: order.extraToppings.filter(t => t.name !== topping.name) };
+      }
+      return order;
+    }));
+  };
+  const addNewToppingToCart = (updatedCart: OrderPizzaType[]) => {
+    setShoppingCart(updatedCart);
   };
   const removeFromCart = (id: string) => {
     setShoppingCart((prevCart) => prevCart.filter((order) => order.id !== id));
@@ -46,9 +55,10 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       value={{
         shoppingCart,
         addToCart,
-        removeFromCart, // Add this line
+        removeFromCart,
         updateExtraToppings,
         addNewToppingToCart,
+        removeToppingFromCart,
       }}
     >
       {children}

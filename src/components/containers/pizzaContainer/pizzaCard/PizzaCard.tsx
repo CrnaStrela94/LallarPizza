@@ -11,6 +11,7 @@ type Props = {
 };
 const PizzaCard: React.FC<Props> = ({ individualPizza }) => {
   const { addToCart } = useCart();
+
   const handleAddToCart = () => {
     const order: OrderPizzaType = {
       pizza: individualPizza,
