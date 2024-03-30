@@ -16,6 +16,19 @@ const Cart: React.FC<Props> = ({ cart, removeFromCart }) => {
     const handleRemoveTopping = (pizzaId: string, topping: ExtraTopping) => {
         removeToppingFromCart(pizzaId, topping);
     };
+    const totalOrderPrice = cart.reduce((total, order) => {
+        let orderTotal = 0;
+        if (order.pizza) {
+            orderTotal += order.pizza.price;
+        }
+        if (order.drinks) {
+            orderTotal += order.drinks.reduce((total, drink) => total + drink.price, 0);
+        }
+        if (order.extraToppings) {
+            orderTotal += order.extraToppings.reduce((total, topping) => total + topping.price, 0);
+        }
+        return total + orderTotal;
+    }, 0);
 
     return (
         <div className="cartContainer">
@@ -50,6 +63,7 @@ const Cart: React.FC<Props> = ({ cart, removeFromCart }) => {
                     </div>
                 </div>
             ))}
+            <p className="totalPrice">Total Order Price: {totalOrderPrice} SEK</p>
         </div>
     );
 };

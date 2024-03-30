@@ -13,7 +13,7 @@ const ToppingCard: React.FC<Props> = ({ individualTopping, pizzaIndex }) => {
 
   const handleAddToCart = () => {
     const updatedCart = shoppingCart.map((order) => {
-      if (order.id === pizzaIndex) {
+      if (order.id === pizzaIndex && !('drink' in order)) {
         const updatedToppings = [...order.extraToppings, individualTopping];
         return { ...order, extraToppings: updatedToppings };
       }

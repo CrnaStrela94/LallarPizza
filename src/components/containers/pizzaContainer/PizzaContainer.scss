@@ -8,8 +8,7 @@
   box-sizing: border-box;
 }
 body {
-  width: 100%;
-  height: 100%;
+  position: relative;
 }
 .pizzaCont {
   width: 30%;
@@ -29,6 +28,6 @@ body {
   background-color: #ccc; /* Adjust the color of the line */
   margin: 10px 0; /* Adjust the margin above and below the line */
 }
-#titleText{
+#titleText {
   margin-left: 1rem;
 }

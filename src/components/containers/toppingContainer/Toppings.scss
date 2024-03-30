@@ -1,10 +1,11 @@
 body {
   position: relative;
 
-  .cartContainer {
+  .toppingContainer {
     position: absolute;
-    right: 2rem;
-    top: 17%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     width: 30%;
     height: 70vh;
     border: 1px solid black;
@@ -15,12 +16,13 @@ body {
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
+    align-items: center;
 
-    .cartItems {
-      overflow-y: auto;
+    #titleText {
+      margin-bottom: 1rem;
     }
 
-    .cartItem {
+    .pizzaToppings {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -35,13 +37,6 @@ body {
       p {
         margin-bottom: 1rem;
       }
-    }
-
-    .totalPrice {
-      position: fixed;
-      bottom: 1rem;
-      right: 1rem;
-      font-size: 2rem;
     }
   }
 }

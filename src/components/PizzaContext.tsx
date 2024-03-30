@@ -32,7 +32,12 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const removeToppingFromCart = (pizzaId: string, topping: ExtraTopping) => {
     setShoppingCart((prevCart) => prevCart.map((order) => {
       if (order.id === pizzaId) {
-        return { ...order, extraToppings: order.extraToppings.filter(t => t.name !== topping.name) };
+        const index = order.extraToppings.findIndex(t => t.name === topping.name);
+        if (index !== -1) {
+          const updatedToppings = [...order.extraToppings];
+          updatedToppings.splice(index, 1);
+          return { ...order, extraToppings: updatedToppings };
+        }
       }
       return order;
     }));
