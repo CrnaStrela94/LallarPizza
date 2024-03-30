@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import "./PizzaCard.scss";
 import pizzaImg from "../../../../assets/pizza.png";
 import { PlusBtn } from "../../../btn/PlusBtn";
-import { OrderPizzaType, Pizza, PizzaOrder } from "../../../types/OrderTypes";
+import { OrderPizzaType, Pizza } from "../../../types/OrderTypes";
 import { useCart } from "../../../PizzaContext";
 
 type Props = {

@@ -1,4 +1,3 @@
-import React from "react";
 import "./PizzaContainer.scss";
 import PizzaCard from "./pizzaCard/PizzaCard";
 import pizzaList from "../../json/Pizza.json";
@@ -12,11 +11,11 @@ const PizzaContainer = () => {
   return (
     <div className="pizzaCont">
       <h2 id="titleText">PIZZA & DRINK</h2>
-      {pizzaArray.map((pizza, index) => (
+      {pizzaArray.map((pizza) => (
         <PizzaCard individualPizza={pizza} />
       ))}
       <span className="divider"></span>
-      {drinksArray.map((drink, index) => (
+      {drinksArray.map((drink) => (
         <DrinkCard individualDrink={drink} />
       ))}
     </div>

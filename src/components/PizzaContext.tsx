@@ -5,15 +5,14 @@ import { ExtraTopping, OrderPizzaType } from "./types/OrderTypes";
 type CartContextType = {
   shoppingCart: OrderPizzaType[];
   addToCart: (order: OrderPizzaType) => void;
+  removeFromCart: (id: string) => void; // Add this line
   updateExtraToppings: (orderId: string, newToppings: ExtraTopping[]) => void;
   addNewToppingToCart: (order: OrderPizzaType[]) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
-export const CartProvider: React.FC<{ children: ReactNode }> = ({
-  children,
-}) => {
+export const CartProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [shoppingCart, setShoppingCart] = useState<OrderPizzaType[]>([]);
 
   const updateExtraToppings = (
@@ -32,6 +31,9 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
   const addNewToppingToCart = (order: OrderPizzaType[]) => {
     setShoppingCart(order);
   };
+  const removeFromCart = (id: string) => {
+    setShoppingCart((prevCart) => prevCart.filter((order) => order.id !== id));
+  };
 
   console.log(shoppingCart);
   const addToCart = (order: OrderPizzaType) => {
@@ -44,6 +46,7 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
       value={{
         shoppingCart,
         addToCart,
+        removeFromCart, // Add this line
         updateExtraToppings,
         addNewToppingToCart,
       }}

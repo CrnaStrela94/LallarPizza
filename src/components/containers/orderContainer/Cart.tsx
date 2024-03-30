@@ -6,7 +6,7 @@ import './__Cart.scss';
 
 type Props = {
     cart: OrderPizzaType[];
-    removeFromCart: (order: OrderPizzaType) => void;
+    removeFromCart: (id: string) => void;
 };
 
 const Cart: React.FC<Props> = ({ cart, removeFromCart }) => {
@@ -14,10 +14,12 @@ const Cart: React.FC<Props> = ({ cart, removeFromCart }) => {
         <div className="cartContainer">
             {cart.map((order, index) => (
                 <div key={index} className="cartItem">
-                    <h3>{order.pizza.name}</h3>
-                    <p>{order.pizza.toppings.join(", ")}</p>
-                    <p>{order.pizza.price}kr</p>
-                    <MinusBtn onClick={() => removeFromCart(order)} />
+                    <div>
+                        <h3> {order.pizza.name}</h3>
+                        <p>Toppings: {order.pizza.toppings.join(', ')}</p>
+                        <p>Price: {order.pizza.price}</p>
+                        <MinusBtn onClick={() => removeFromCart(order.id)} />
+                    </div>
                 </div>
             ))}
         </div>
