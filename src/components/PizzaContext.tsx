@@ -5,7 +5,7 @@ import { OrderPizzaType } from "./types/OrderTypes";
 type CartContextType = {
   shoppingCart: OrderPizzaType[];
   addToCart: (order: OrderPizzaType) => void;
-  plusToCart: (order: OrderPizzaType) => void;
+  plusToCart: (newShoppingCart: OrderPizzaType[]) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -19,8 +19,13 @@ export const CartProvider: React.FC<{ children: ReactNode }> = ({
     setShoppingCart([...shoppingCart, order]);
   };
   console.log(shoppingCart);
-  const plusToCart = (order: OrderPizzaType) => {
-  setShoppingCart([...shoppingCart, order])
+
+
+  const plusToCart = (newShoppingCart: OrderPizzaType[]) => {
+    console.log("I plusfunktion")
+    console.log(shoppingCart)
+  setShoppingCart(newShoppingCart)
+  console.log("ur plusfunktion")
 }
   return (
     <CartContext.Provider value={{ shoppingCart, addToCart, plusToCart }}>
