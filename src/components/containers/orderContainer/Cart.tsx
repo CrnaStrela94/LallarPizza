@@ -60,6 +60,7 @@ const Cart: React.FC<Props> = ({ cart, removeFromCart }) => {
                             </>
                         )}
                         <MinusBtn onClick={() => removeFromCart(order.id)} />
+                        <span>Abort Order</span>
                     </div>
                 </div>
             ))}
