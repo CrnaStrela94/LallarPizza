@@ -1,20 +1,20 @@
+@import "../pizzaContainer/PizzaContainer.scss";
+@import"./../../scss/_mixins";
 body {
-  position: relative;
+ 
 
   .cartContainer {
-    position: absolute;
-    right: 2rem;
-    top: 17%;
     width: 30%;
     height: 70vh;
-    border: 1px solid black;
+    border: none;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
     padding: 1rem;
-    overflow: hidden;
-    overflow-y: scroll;
     display: flex;
     flex-direction: column;
+    font-family: interFont;
+    @include container;
+   
 
     .cartItems {
       overflow-y: auto;
@@ -38,10 +38,10 @@ body {
     }
 
     .totalPrice {
-      position: fixed;
       bottom: 1rem;
       right: 1rem;
-      font-size: 2rem;
+      @include title;
+      font-weight: bold;
     }
   }
 }

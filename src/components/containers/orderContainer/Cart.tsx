@@ -4,6 +4,7 @@ import { OrderPizzaType, ExtraTopping } from "../../types/OrderTypes";
 import MinusBtn from '../../btn/MinusBtn';
 import './__Cart.scss';
 import { useCart } from "../../PizzaContext";
+import OrderBtn from '../../btn/OrderBtn';
 
 type Props = {
     cart: OrderPizzaType[];
@@ -32,6 +33,7 @@ const Cart: React.FC<Props> = ({ cart, removeFromCart }) => {
 
     return (
         <div className="cartContainer">
+            <h2 id="titleText">ORDER</h2>
             {cart.map((order, index) => (
                 <div key={index} className="cartItem">
                     <div>
@@ -57,14 +59,18 @@ const Cart: React.FC<Props> = ({ cart, removeFromCart }) => {
                                         <MinusBtn onClick={() => handleRemoveTopping(order.id, topping)} />
                                     </div>
                                 ))}
+                             
                             </>
                         )}
                         <MinusBtn onClick={() => removeFromCart(order.id)} />
                         <span>Abort Order</span>
+            
                     </div>
+                    
                 </div>
             ))}
             <p className="totalPrice">Total Order Price: {totalOrderPrice} SEK</p>
+            <OrderBtn/>  
         </div>
     );
 };
