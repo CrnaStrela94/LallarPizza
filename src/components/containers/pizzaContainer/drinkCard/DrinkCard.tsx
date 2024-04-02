@@ -1,16 +1,28 @@
 import React from "react";
 import "../pizzaCard/PizzaCard.scss";
-import spriteImg from "../../../../assets/sprite.png";
 import { PlusBtn } from "../../../btn/PlusBtn";
 import { Drink, OrderPizzaType } from "../../../types/OrderTypes";
 import { useCart } from "../../../PizzaContext";
 import { v4 as uuidv4 } from "uuid";
+import spriteImg from "../../../../assets/sprite.png";
+import fantaImg from "../../../../assets/fanta.png";
+import colaImg from "../../../../assets/cola.png";
 
 type Props = {
-  individualDrink: Drink;
+  individualDrink: Drink
 };
 
 const DrinkCard: React.FC<Props> = ({ individualDrink }) => {
+  let canImg = ''
+  if(individualDrink.name==='Coca-Cola'){
+    canImg=colaImg
+  } else if (individualDrink.name==="Sprite"){
+canImg=spriteImg
+  } else if (individualDrink.name=== "Fanta"){
+    canImg=fantaImg
+  }
+    
+  
   const { addToCart } = useCart();
   const handleAddToCart = () => {
     const order: OrderPizzaType = {
@@ -21,10 +33,12 @@ const DrinkCard: React.FC<Props> = ({ individualDrink }) => {
     };
     addToCart(order);
   };
+  
+
   return (
     <>
       <div className="cardContainer">
-        <img src={spriteImg} alt="Sprite Image" className="pizzaImg"></img>
+        <img src={canImg} alt="Can Image" className="pizzaImg"></img>
         <div className="textContainer">
           <h3>{individualDrink.name}</h3>
           <p>330ml can</p>

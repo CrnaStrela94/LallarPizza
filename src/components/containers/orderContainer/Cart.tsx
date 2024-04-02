@@ -4,14 +4,21 @@ import { OrderPizzaType, ExtraTopping } from "../../types/OrderTypes";
 import MinusBtn from '../../btn/MinusBtn';
 import './__Cart.scss';
 import { useCart } from "../../PizzaContext";
+import pizzaImg from "../../../assets/pizza.png"
+import spriteImg from "../../../assets/sprite.png"
+import fantaImg from "../../../assets/fanta.png"
+import colaImg from "../../../assets/cola.png"
+
 
 type Props = {
     cart: OrderPizzaType[];
     removeFromCart: (id: string) => void;
 };
 
+
 const Cart: React.FC<Props> = ({ cart, removeFromCart }) => {
     const { removeToppingFromCart } = useCart();
+   
 
     const handleRemoveTopping = (pizzaId: string, topping: ExtraTopping) => {
         removeToppingFromCart(pizzaId, topping);
@@ -37,6 +44,7 @@ const Cart: React.FC<Props> = ({ cart, removeFromCart }) => {
                     <div>
                         {order.pizza.name && (
                             <>
+                                <img src={pizzaImg} alt="Pizza Image" className="pizzaImg"></img>
                                 <h3>{order.pizza.name}</h3>
                                 <p>Toppings: {order.pizza.toppings.join(', ')}</p>
                                 <p>Price: {order.pizza.price} SEK</p>
@@ -46,6 +54,17 @@ const Cart: React.FC<Props> = ({ cart, removeFromCart }) => {
                             <>
                                 <p>Drinks: {order.drinks.map(drink => drink.name).join(', ')}</p>
                                 <p>Price: {order.drinks.map(drink => drink.price).join(', ')} SEK</p>
+                                {order.drinks.map(drink => {
+                                    if(drink.name === 'Coca-Cola'){
+                                        return <img src={colaImg} alt="Coca-Cola Image" className="drinkImg"></img>;
+                                    }
+                                    else if(drink.name === 'Sprite'){
+                                        return <img src={spriteImg} alt="Sprite Image" className="drinkImg"></img>;
+                                    }
+                                    else if(drink.name === 'Fanta'){
+                                        return <img src={fantaImg} alt="Fanta Image" className="drinkImg"></img>;
+                                    }
+                                })}
                             </>
                         )}
                         {order.extraToppings.length > 0 && (
