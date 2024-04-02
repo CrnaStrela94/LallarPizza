@@ -7,6 +7,8 @@ import pizzaImg from "../../../assets/pizza.png"
 import spriteImg from "../../../assets/sprite.png"
 import fantaImg from "../../../assets/fanta.png"
 import colaImg from "../../../assets/cola.png"
+import OrderBtn from "../../btn/OrderBtn";
+
 
 
 const Cart: React.FC = () => {
@@ -42,22 +44,21 @@ const Cart: React.FC = () => {
                 <div key={index} className="cartItem">
                     <div>
                         {order.pizza.name && (
-                            <>
+                            <div className="orderContainer">
                                 <img src={pizzaImg} alt="Pizza Image" className="pizzaImg"></img>
-                                <h3>{order.pizza.name}</h3>
-                                <p>Toppings: {order.pizza.toppings.join(", ")}</p>
-                                <p>Price: {order.pizza.price} SEK</p>
-                            </>
+                                <div className="itemText">
+                                    <h3>{order.pizza.name}</h3>
+                                    <p>Toppings: {order.pizza.toppings.join(", ")}</p>
+                                    <p>Price: {order.pizza.price} SEK</p>
+                                </div>
+                                <div className="removePizzaBtn">
+                                    <MinusBtn onClick={() => removeFromCart(order.id)} />
+                                </div>
+                            </div>
                         )}
                         {order.drinks.length > 0 && (
-                            <>
-                                <p>
-                                    Drinks: {order.drinks.map((drink) => drink.name).join(", ")}
-                                </p>
-                                <p>
-                                    Price: {order.drinks.map((drink) => drink.price).join(", ")}{" "}
-                                    SEK
-                                </p>
+                            <div className="drinkContainer">
+                               
                                 {order.drinks.map(drink => {
                                     if (drink.name === 'Coca-Cola') {
                                         return <img src={colaImg} alt="Coca-Cola Image" className="drinkImg"></img>;
@@ -68,36 +69,52 @@ const Cart: React.FC = () => {
                                     else if (drink.name === 'Fanta') {
                                         return <img src={fantaImg} alt="Fanta Image" className="drinkImg"></img>;
                                     }
-                                })}
-                            </>
+                                }
+                                
+                                )}
+                                 <p>
+                                    Drinks: {order.drinks.map((drink) => drink.name).join(", ")}
+                                </p>
+                                <p>
+                                    Price: {order.drinks.map((drink) => drink.price).join(", ")}{" "}
+                                    SEK
+                                </p>
+                                
+                                <div className="removeDrinkBtn">
+                                <MinusBtn onClick={() => removeFromCart(order.id)} />
+                                </div>
+                                </div>
                         )}
                         {order.extraToppings.length > 0 && (
                             <>
+                                <div className="itemText">
                                 <p>
                                     Extra Toppings:{" "}
                                     {order.extraToppings
                                         .map((topping) => topping.name)
                                         .join(", ")}
                                 </p>
+                                </div>
                                 {order.extraToppings.map((topping) => (
-                                    <div key={topping.name}>
+                                    <div className="toppingItemContainer" key={topping.name}>
                                         <p>
                                             {topping.name} - {topping.price} SEK
                                         </p>
-                                        <MinusBtn
-                                            onClick={() => handleRemoveTopping(order.id, topping)}
-                                        />
-                                        <span>remove extra item</span>
+                                        
+                                        <div className="removeToppingBtn">
+                                            <MinusBtn onClick={() => handleRemoveTopping(order.id, topping)} />
+                                        </div>
                                     </div>
-                                ))}
+                                )
+                                
+                                )}
                             </>
                         )}
-                        <MinusBtn onClick={() => removeFromCart(order.id)} />
-                        <span>Abort Order</span>
                     </div>
                 </div>
             ))}
             <p className="totalPrice">Total Order Price: {totalOrderPrice} SEK</p>
+            <OrderBtn />
         </div>
     );
 };
