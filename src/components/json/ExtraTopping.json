@@ -2,27 +2,33 @@
   "toppings": [
     {
       "name": "Pepperoni",
-      "price": 15
+      "price": 15,
+      "amount": 1
     },
     {
       "name": "Mushrooms",
-      "price": 5
+      "price": 5,
+      "amount": 1
     },
     {
       "name": "Onions",
-      "price": 3
+      "price": 3,
+      "amount": 1
     },
     {
       "name": "Green Peppers",
-      "price": 15
+      "price": 15,
+      "amount": 1
     },
     {
       "name": "Olives",
-      "price": 17
+      "price": 17,
+      "amount": 1
     },
     {
       "name": "Pineapple",
-      "price": 25
+      "price": 25,
+      "amount": 1
     }
   ]
 }

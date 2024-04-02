@@ -1,0 +1,32 @@
+// body {
+//   position: relative;
+//   display: flex;
+//   justify-content: space-around; /* Distributes the containers evenly across the horizontal line */
+//   align-items: start; /* Aligns the containers at the top */
+//   height: 100vh;
+//   padding: 2rem;
+// }
+
+// .pizzaCont,
+// .cartContainer,
+// .toppingContainer {
+//   width: 30%;
+//   height: 70vh;
+//   border: 1px solid black;
+//   border-radius: 10px;
+//   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+//   padding: 1rem;
+//   overflow: hidden;
+//   overflow-y: scroll;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   font-family: interFont;
+// }
+
+// .totalPrice {
+//   position: fixed;
+//   bottom: 1rem;
+//   right: 1rem;
+//   font-size: 2rem;
+// }

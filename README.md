@@ -1,38 +1,35 @@
 # Project Name
 
+LallarPizza
+
 ## Description
 
-A brief description of your project goes here.
+One Express Pizza Order Machine
 
 ## Features
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Order add Pizza
+- Edit Pizza
+- Remove Pizza
 
 ## Installation
 
 1. Clone the repository.
 2. Install the dependencies using `npm install`.
-3. Run the project using `npm start`.
+3. Run the project using `npm run dev`.
 
 ## Usage
 
-Explain how to use your project here.
+you can use our app to create order for your pizza to add or remove toppings etc.
 
-## Contributing
+## Contributors
 
-If you'd like to contribute to this project, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch.
-3. Make your changes.
-4. Submit a pull request.
+1. Luka Arsenijevic
+2. Lucas Pohl
+3. Linus Orrekvist
+4. Elisabeth Bach
+5. Mike Wasser
 
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-
-## Contact
-
-If you have any questions or suggestions, feel free to contact me at [email@example.com](mailto:email@example.com).
