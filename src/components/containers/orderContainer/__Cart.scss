@@ -27,7 +27,7 @@ body {
       border-bottom: 1px solid #ccc;
       padding: 1rem;
       margin-bottom: 1rem;
-      margin-left: -5rem;
+    
       
 
       h3 {
@@ -50,14 +50,18 @@ body {
 .drinkImg{
   width: 5rem;
   height: 5rem;
+  margin-left:-3rem;
 }
 
 .orderContainer {
   display: flex;
+  justify-content: space-between;
+margin-bottom: 2rem;
 }
 
-.itemText {
-  padding-left: 1.5rem;
+.pizzaText {
+  width: 15rem;
+  margin-left: 2rem;
 }
 
 .removePizzaBtn {
@@ -70,7 +74,6 @@ body {
   justify-content: space-between;
   max-width: 26.6rem;
   margin-left: 1.5rem;
-  
 }
 
 .removeToppingBtn {
@@ -82,10 +85,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 26.5rem;
-  
+  width: 24rem;
+  margin-left: 4rem;
 }
 
 .removeDrinkBtn {
   margin-bottom: 1rem;
+  margin-right: 1.3rem;
 }

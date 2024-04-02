@@ -46,10 +46,10 @@ const Cart: React.FC = () => {
                         {order.pizza.name && (
                             <div className="orderContainer">
                                 <img src={pizzaImg} alt="Pizza Image" className="pizzaImg"></img>
-                                <div className="itemText">
+                                <div className="pizzaText">
                                     <h3>{order.pizza.name}</h3>
-                                    <p>Toppings: {order.pizza.toppings.join(", ")}</p>
-                                    <p>Price: {order.pizza.price} SEK</p>
+                                        <p> {order.pizza.toppings.join(", ")}</p>
+                                    <p> {order.pizza.price} SEK</p>
                                 </div>
                                 <div className="removePizzaBtn">
                                     <MinusBtn onClick={() => removeFromCart(order.id)} />
@@ -73,10 +73,10 @@ const Cart: React.FC = () => {
                                 
                                 )}
                                  <p>
-                                    Drinks: {order.drinks.map((drink) => drink.name).join(", ")}
+                                     {order.drinks.map((drink) => drink.name).join(", ")}
                                 </p>
                                 <p>
-                                    Price: {order.drinks.map((drink) => drink.price).join(", ")}{" "}
+                                    {order.drinks.map((drink) => drink.price).join(", ")}{" "}
                                     SEK
                                 </p>
                                 
@@ -87,14 +87,6 @@ const Cart: React.FC = () => {
                         )}
                         {order.extraToppings.length > 0 && (
                             <>
-                                <div className="itemText">
-                                <p>
-                                    Extra Toppings:{" "}
-                                    {order.extraToppings
-                                        .map((topping) => topping.name)
-                                        .join(", ")}
-                                </p>
-                                </div>
                                 {order.extraToppings.map((topping) => (
                                     <div className="toppingItemContainer" key={topping.name}>
                                         <p>
