@@ -9,9 +9,13 @@ const ToppingContainer = () => {
   return (
     <div className="toppingContainer">
       <h2 id="titleText">TOPPINGS</h2>
-      {shoppingCart.map((order, index) => (
-        <PizzaToppings key={index} order={order} pizzaIndex={order.id} />
-      ))}
+      {shoppingCart.map((order, index) => {
+        if (order.pizza.price !== 0) {
+          return (
+            <PizzaToppings key={index} order={order} pizzaIndex={order.id} />
+          );
+        }
+      })}
     </div>
   );
 };

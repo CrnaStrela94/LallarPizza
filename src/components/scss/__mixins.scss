@@ -1,0 +1,15 @@
+@mixin container {
+    background-color: white;
+    overflow: hidden;
+    margin-top: 2rem;
+    overflow-y: scroll;
+    width: 30%;
+    height: 47.5rem; 
+  }
+
+@mixin title{
+    font-size: 1.5rem;
+    font-family: interFont;
+
+}
+
