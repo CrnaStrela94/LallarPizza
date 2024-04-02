@@ -2,15 +2,18 @@
   "drinks": [
     {
       "name": "Coca-Cola",
-      "price": 2.5
+      "price": 22.5,
+      "amount": 1
     },
     {
       "name": "Sprite",
-      "price": 2.0
+      "price": 22.5,
+      "amount": 1
     },
     {
       "name": "Fanta",
-      "price": 2.0
+      "price": 22.5,
+      "amount": 1
     }
   ]
 }

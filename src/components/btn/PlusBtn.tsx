@@ -1,14 +1,17 @@
-import React from 'react'
-import "./__plusbtn.scss"
+import React from "react";
+import "./__plusbtn.scss";
+import plus from "../../assets/plus.svg"
 
-const plusClick=()=>{
-    
+interface PlusBtnProps {
+  onClick?: () => void;
 }
 
-export const PlusBtn = () => {
+export const PlusBtn: React.FC<PlusBtnProps> = ({ onClick }) => {
+  const handleClick = onClick || (() => { });
+
   return (
-    <>
-    <button className="plus-button"onClick={plusClick}> <span id='plus'>+</span></button>
-    </>
-  )
-}
+    <button className="plus-button" onClick={handleClick}>
+      <img src={plus} alt="" />
+    </button>
+  );
+};

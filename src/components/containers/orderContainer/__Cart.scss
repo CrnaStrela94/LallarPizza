@@ -1,0 +1,47 @@
+@import "../pizzaContainer/PizzaContainer.scss";
+@import"./../../scss/_mixins";
+body {
+ 
+
+  .cartContainer {
+    width: 30%;
+    height: 70vh;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    font-family: interFont;
+    @include container;
+   
+
+    .cartItems {
+      overflow-y: auto;
+    }
+
+    .cartItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid #ccc;
+      padding: 1rem;
+      margin-bottom: 1rem;
+
+      h3 {
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .totalPrice {
+      bottom: 1rem;
+      right: 1rem;
+      @include title;
+      font-weight: bold;
+    }
+  }
+}

@@ -1,8 +1,7 @@
-import React from 'react';
-import bagImage from '../../assets/bag-svgrepo.svg'; 
+import bagImage from '../../assets/bag-svgrepo.svg';
 import "./__orderbtn.scss"
 
-const handleClick =()=>{
+const handleClick = () => {
 
 }
 const OrderBtn = () => {

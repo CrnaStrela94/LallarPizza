@@ -1,14 +1,17 @@
 import React from 'react'
 import "./__minusbtn.scss"
-const minusClick=()=>{
-    
+import minus from "../../assets/Minus.svg"
+
+interface MinusBtnProps {
+  onClick: () => void;
 }
-const MinusBtn = () => {
+
+const MinusBtn: React.FC<MinusBtnProps> = ({ onClick }) => {
   return (
-    <>
-    <button className="minus-button" onClick={minusClick}><span id='minus'>-</span></button>
-    </>
+    <button className="minus-button" onClick={onClick}>
+      <img id="minus" src={minus} alt="minus" />
+    </button>
   )
 }
 
-export default MinusBtn
+export default MinusBtn;
