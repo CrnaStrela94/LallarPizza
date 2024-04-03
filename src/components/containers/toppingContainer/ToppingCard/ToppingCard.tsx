@@ -27,7 +27,7 @@ const ToppingCard: React.FC<Props> = ({ individualTopping, pizzaIndex }) => {
       <div className="textContainer">
         <h3>{individualTopping.name}</h3>
       </div>
-      <div className="priceCont">
+      <div className="priceCont-2">
         <PlusBtn onClick={handleAddToCart} />
         <p>{individualTopping.price}kr</p>
       </div>

@@ -1,7 +1,6 @@
 import { useCart } from "../../PizzaContext";
 import PizzaToppings from "./PizzaToppings/PizzaToppings";
 import "./Toppings.scss";
-import pizzaImg from "../../../assets/pizza.png"
 
 const ToppingContainer = () => {
   const { shoppingCart } = useCart();
